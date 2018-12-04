@@ -16,7 +16,7 @@ def equatorial_UVW(ra, dec, pmra, pmdec, rv, dist, pmra_error=None, pmdec_error=
 	
 	param ra: Right ascension (degrees)
 	param dec: Declination (degrees)
-	param pmra: Proper motion in right ascension (milliarcsecond per year). 	Must include the cos(delta) term
+	param pmra: Proper motion in right ascension (milliarcsecond per year). Must include the cos(delta) term
 	param pmdec: Proper motion in declination (milliarcsecond per year)
 	param rv: Radial velocity (kilometers per second)
 	param dist: Distance (parsec)
