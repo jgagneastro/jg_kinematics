@@ -12,12 +12,12 @@ l_north = 122.932
 sin_dec_pol = np.sin(np.radians(dec_pol))
 cos_dec_pol = np.cos(np.radians(dec_pol))
 
-def galactic_equatorial(gl,gb):
-	"""Transforms Galactic coordinates (gl,gb) to equatorial coordinates (ra,dec). All inputs must be numpy arrays of the same dimension
+def galactic_equatorial(gl, gb):
+	"""Transforms Galactic coordinates (gl, gb) to equatorial coordinates (ra, dec). All inputs must be numpy arrays of the same dimension
 	
 		param gl: Galactic longitude (degrees)
 		param gb: Galactic latitude (degrees)
-		output (ra,dec): Tuple containing right ascension and declination (degrees)
+		output (ra, dec): Tuple containing right ascension and declination (degrees)
 	"""
 	
 	#Check for parameter consistency
@@ -40,8 +40,8 @@ def galactic_equatorial(gl,gb):
 	cos_dec = np.sqrt(1.0-sin_dec**2)
 	sin_f = cos_gb*sin_gl/cos_dec
 	cos_f = (sin_gb - sin_dec_pol*sin_dec)/(cos_dec_pol*cos_dec)
-	ra = ra_pol + np.degrees(np.atan2(sin_f,cos_f))
-	ra = np.mod(ra,360.0)
+	ra = ra_pol + np.degrees(np.atan2(sin_f, cos_f))
+	ra = np.mod(ra, 360.0)
 	
 	#Return equatorial coordinates tuple
 	return (ra, dec)

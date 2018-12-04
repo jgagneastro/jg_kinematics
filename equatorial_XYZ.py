@@ -1,16 +1,16 @@
 import numpy as np #Numpy maths
 
-def equatorial_XYZ(ra,dec,dist,dist_error=None):
+def equatorial_XYZ(ra, dec, dist, dist_error=None):
 	"""
-	Transforms equatorial coordinates (ra,dec) and distance to Galactic position XYZ. All inputs must be numpy arrays of the same dimension.
+	Transforms equatorial coordinates (ra, dec) and distance to Galactic position XYZ. All inputs must be numpy arrays of the same dimension.
 	
 	param ra: Right ascension (degrees)
 	param dec: Declination (degrees)
 	param dist: Distance (parsec)
 	param dist_error: Error on distance (parsec)
 	
-	output (X,Y,Z): Tuple containing Galactic position XYZ (parsec)
-	output (X,Y,Z,EX,EY,EZ): Tuple containing Galactic position XYZ and their measurement errors, used if any measurement errors are given as inputs (parsec)
+	output (X, Y, Z): Tuple containing Galactic position XYZ (parsec)
+	output (X, Y, Z, EX, EY, EZ): Tuple containing Galactic position XYZ and their measurement errors, used if any measurement errors are given as inputs (parsec)
 	"""
 	
 	#Verify keywords
@@ -21,7 +21,7 @@ def equatorial_XYZ(ra,dec,dist,dist_error=None):
 		raise ValueError('dist_error must be a numpy array of the same size as ra !')
 	
 	#Compute Galactic coordinates
-	(gl, gb) = equatorial_galactic(ra,dec)
+	(gl, gb) = equatorial_galactic(ra, dec)
 	
 	cos_gl = np.cos(np.radians(gl))
 	cos_gb = np.cos(np.radians(gb))
