@@ -1,5 +1,15 @@
 import numpy as np #Numpy maths
 
+#Initiate some global constants
+#1 AU/yr to km/s divided by 1000
+kappa = 0.004743717361
+#Not using "from astropy import units as u; kappa=u.au.to(u.km)/u.year.to(u.s)" because astropy defines one year as exactly 365.25 days instead of 365 days
+
+#Galactic Coordinates matrix
+TGAL = (np.array([[-0.0548755604, -0.8734370902, -0.4838350155],
+	[0.4941094279, -0.4448296300, 0.7469822445],
+	[-0.8676661490,  -0.1980763734, 0.4559837762]]))
+
 def equatorial_UVW(ra,dec,pmra,pmdec,rv,dist,pmra_error=None,pmdec_error=None,rv_error=None,dist_error=None):
 	"""
 	Transforms equatorial coordinates (ra,dec), proper motion (pmra,pmdec), radial velocity and distance to space velocities UVW. All inputs must be numpy arrays of the same dimension.
